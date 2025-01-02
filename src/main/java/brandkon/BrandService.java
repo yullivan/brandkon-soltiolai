@@ -23,8 +23,8 @@ public class BrandService {
         return responses;
     }
 
-    public List<BrandResponse> getAllBrandsByCategoryId(long categoryId){
-        List<BrandResponse> responses = brandRepository.findByCategoryId(categoryId)
+    public List<BrandResponse> getAllBrandsByCategorySlug(String categorySlug){
+        List<BrandResponse> responses = brandRepository.findByCategorySlug(categorySlug)
                 .stream()
                 .map(brand -> new BrandResponse(brand.getId(), brand.getName(), brand.getImageUrl()))
                 .toList();

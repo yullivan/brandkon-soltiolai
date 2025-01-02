@@ -18,11 +18,11 @@ public class BrandController {
 
     //브랜드 목록 조회
     @GetMapping("/brands")
-    public List<BrandResponse> getAllBrands(@RequestParam(defaultValue = "0") long categoryId){
-        if(categoryId==0){
+    public List<BrandResponse> getAllBrands(@RequestParam(defaultValue = "") String category){
+        if(category.equals("")){
             return brandService.getAllBrands();
         } else {
-            return brandService.getAllBrandsByCategoryId(categoryId);
+            return brandService.getAllBrandsByCategorySlug(category);
         }
     }
 
