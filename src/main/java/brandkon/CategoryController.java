@@ -17,7 +17,7 @@ public class CategoryController {
 
     //카테고리 목록 조회
     @GetMapping("/categories")
-    public ResponseEntity<List<CategoryResponse>> getAllCategories(){
-        return ResponseEntity.ok(categoryService.getAllCategories());
+    public List<CategoryResponse> getAllCategories(){
+        return categoryService.getAllCategories();
     }
 }
